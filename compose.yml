@@ -1,0 +1,11 @@
+services:
+  s3-desk:
+    image: s3-scout:local
+    build: .
+    ports:
+      - "127.0.0.1:${S3_DESK_PORT:-7890}:7890"
+    volumes:
+      - s3-desk-data:/data
+
+volumes:
+  s3-desk-data:

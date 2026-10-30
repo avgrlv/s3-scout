@@ -1,0 +1,35 @@
+# Скопируйте в config.yml и замените имена бакетов на свои.
+# Импортируется в SQLite только при первом запуске из исходников.
+# После импорта управляйте подключениями через интерфейс.
+# Для Docker копировать этот файл не нужно: добавьте подключения в интерфейсе.
+# Ключи храните в .env (см. .env.example), а не в YAML.
+default_connection: yandex
+
+connections:
+  yandex:
+    label: Yandex Object Storage
+    endpoint_url: https://storage.yandexcloud.net
+    region: ru-central1
+    bucket: my-yandex-bucket
+    prefix: "" # Пустая строка — корень бакета; например, documents/ — начальная папка.
+    credentials_env: AWS # AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.
+
+  selectel:
+    label: Selectel · ru-6
+    endpoint_url: https://s3.ru-6.storage.selcloud.ru
+    region: ru-6
+    bucket: my-selectel-bucket
+    prefix: ""
+    credentials_env: SELECTEL
+    # ca_bundle: /absolute/path/to/company-ca.pem # Только если нужен свой доверенный CA.
+
+  # Для другого S3-совместимого хранилища задайте его endpoint, регион и бакет.
+  # Endpoint содержит только протокол и сервер, без бакета и пути.
+  # Вместо credentials_env можно указать AWS-профиль:
+  # custom:
+  #   label: Моё хранилище
+  #   endpoint_url: https://storage.example.com
+  #   region: us-east-1
+  #   bucket: my-bucket
+  #   prefix: ""
+  #   profile: work # Имя профиля в локальном ~/.aws; не используйте вместе с credentials_env.

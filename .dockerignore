@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!backend/
+!backend/**
+!download_s3.py
+!frontend/
+!frontend/package.json
+!frontend/package-lock.json
+!frontend/index.html
+!frontend/tsconfig.json
+!frontend/vite.config.ts
+!frontend/src/
+!frontend/src/**
+backend/**/__pycache__/
+backend/**/*.pyc
